@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "time": {
+      "enabled": true,
+      "timeout": 60,
+      "command": "python",
+      "args": ["-m", "mcp_server_time", "--local-timezone=Europe/Sofia"],
+      "transportType": "stdio"
+    },
+    "ddg-search": {
+      "enabled": true,
+      "timeout": 60,
+      "command": "uvx",
+      "args": ["duckduckgo-mcp-server"],
+      "transportType": "stdio"
+    },  
+    "fetch": {
+      "enabled": true,
+      "timeout": 60,
+      "command": "python",
+      "args": ["-m", "mcp_server_fetch"],
+      "transportType": "stdio"
+    },
+    "github": {
+      "enabled": true,
+      "timeout": 60,
+      "command": "mcp-server-github",
+      "args": [],
+      "transportType": "stdio"
+    }
+  }
+}

@@ -255,12 +255,15 @@ async def run_mcp_server(
         # Add named servers
         sse_urls.extend([f"{base_url}/servers/{name}/sse" for name in named_server_params])
 
-        # Display the SSE URLs prominently
+        # Display the endpoint URLs prominently
         if sse_urls:
-            # Using print directly for user visibility, with noqa to ignore linter warnings
             logger.info("Serving MCP Servers via SSE:")
             for url in sse_urls:
                 logger.info("  - %s", url)
+            
+            logger.info("Serving MCP Servers via StreamableHTTP:")
+            for name in named_server_params:
+                logger.info("  - %s/servers/%s/mcp", base_url, name)
 
         logger.debug(
             "Serving incoming MCP requests on %s:%s",
