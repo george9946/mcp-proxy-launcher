@@ -55,4 +55,4 @@ The current [config.json](config.json) uses:
 
 ## Run
 
-Use [run.bat](run.bat) to start the local launcher.
+Use [run.bat](run.bat) from Command Prompt or [run.ps1](run.ps1) from PowerShell to start the local launcher.
