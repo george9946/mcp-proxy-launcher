@@ -17,6 +17,27 @@ permissions:
   contents: read
 
 jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v2.0.0
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,204,429
+            --exclude-mail
+            --exclude-path .git
+            --exclude-path .github
+            --exclude-path .pytest_cache
+            --exclude-path build
+            --exclude-path src/mcp_proxy.egg-info
+            --max-concurrency 8
+            "**/*.md"
+
   lint:
     runs-on: ubuntu-latest
     steps:
